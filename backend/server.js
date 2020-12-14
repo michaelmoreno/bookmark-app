@@ -33,7 +33,7 @@ const models = setupDB("cluster0.1vnil.mongodb.net", "michael", "dbpwd", "bookma
 const app = setupApp(3000);
 
 app.get('/', (req, res) => {
-  res.send('s')
+  res.send(req.body)
 })
 
 app.post('/add', (req, res) => {
