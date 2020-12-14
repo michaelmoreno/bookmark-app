@@ -4,11 +4,13 @@ const bodyParser = require('body-parser');
 const { Schema } = mongoose;
 
 
-function setupDB(host, user, pw, db) {
-  const url = `mongodb+srv://${user}:${pw}@${host}/${db}?retryWrites=true&w=majority`;
-  mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true, }, () => {
-    console.log('DB Connected');
-  })
+function setupDB(host, user, pw, dbname) {
+  const url = `mongodb+srv://${user}:${pw}@${host}/${dbname}?retryWrites=true&w=majority`;
+  mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true, })
+
+  const db = mongoose.connection;
+  db.on('open', () => console.log(`DB Connected: ${url}`));
+  db.on('error', console.error.bind(console, 'Connection error.'));
   
   const bookmarkSchema = new Schema({
     name: { type: String, required: true },
@@ -29,11 +31,12 @@ function setupApp(port) {
   return app;
 }
 
-const models = setupDB("cluster0.1vnil.mongodb.net", "michael", "dbpwd", "bookmarks");
+const models = setupDB("cluster0.lvnil.mongodb.net", "michael", "dbpwd", "bookmarks");
 const app = setupApp(3000);
 
-app.get('/', (req, res) => {
-  res.send(req.body)
+app.get('/all', (req, res) => {
+  const bookmarks = models.Bookmark.find({});
+  res.json(bookmarks);
 })
 
 app.post('/add', async (req, res) => {
@@ -44,10 +47,13 @@ app.post('/add', async (req, res) => {
   res.json(bookmark)
 })
 
-app.delete('/remove', (req, res) => {
+app.delete('/rem', (req, res) => {
   res.send('remove');
 })
 
 app.put('/edit', (req, res) => {
-  res.send('edit');
+  const id = req.body.id;
+  const name = req.body.name;
+  const url = req.body.url;
+  const bookmark = models.Bookmark.f
 })
