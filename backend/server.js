@@ -36,9 +36,12 @@ app.get('/', (req, res) => {
   res.send(req.body)
 })
 
-app.post('/add', (req, res) => {
-  console.log(req.body);
-  res.json({ foo: "bar" });
+app.post('/add', async (req, res) => {
+  const name = req.body.name;
+  const url = req.body.url;
+  const bookmark = new models.Bookmark({ name, url });
+  await bookmark.save();
+  res.json(bookmark)
 })
 
 app.delete('/remove', (req, res) => {

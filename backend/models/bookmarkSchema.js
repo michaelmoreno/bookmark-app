@@ -39,4 +39,3 @@ class DataLayer {
     Bookmark.find({})
   }
 };
-k
