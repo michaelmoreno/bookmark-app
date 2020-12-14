@@ -34,8 +34,8 @@ function setupApp(port) {
 const models = setupDB("cluster0.lvnil.mongodb.net", "michael", "dbpwd", "bookmarks");
 const app = setupApp(3000);
 
-app.get('/all', (req, res) => {
-  const bookmarks = models.Bookmark.find({});
+app.get('/all', async (req, res) => {
+  const bookmarks = await models.Bookmark.find({}).exec();
   res.json(bookmarks);
 })
 
@@ -47,13 +47,17 @@ app.post('/add', async (req, res) => {
   res.json(bookmark)
 })
 
-app.delete('/rem', (req, res) => {
-  res.send('remove');
+app.delete('/rem', async (req, res) => {
+  const id = req.body.id;
+  await models.Bookmark.findByIdAndDelete(id).exec();
 })
 
-app.put('/edit', (req, res) => {
+app.put('/edit', async (req, res) => {
   const id = req.body.id;
   const name = req.body.name;
   const url = req.body.url;
-  const bookmark = models.Bookmark.f
+  const update = { name, url };
+  const options = { new: true };
+  const bookmark = await models.Bookmark.findByIdAndUpdate(id, update, options).exec();
+  res.json(bookmark);
 })
