@@ -20,15 +20,17 @@ function setupDB(host, user, pw, db) {
 }
 
 function setupApp(port) {
-  const app = express();
+    const app = express();
+
+  app.use(bodyParser.urlencoded({ extended: false }));
+  app.use(bodyParser.json());
+
   app.listen(port, () => console.log(`listening on ${port}`))
   return app;
 }
 
 const models = setupDB("cluster0.1vnil.mongodb.net", "michael", "dbpwd", "bookmarks");
 const app = setupApp(3000);
-
-app.use(bodyParser.urlencoded({ extended: true }))
 
 app.get('/', (req, res) => {
   res.send('s')
