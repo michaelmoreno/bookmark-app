@@ -10,9 +10,10 @@ export default class DataLayer {
     return `http://${this.host}:${this.port}/${uri}`
   }
 
-  apiFetch(ep, options) {
+  async apiFetch(ep, options) {
     const url = this.makeUrl(ep);
-    return fetch(url, options);
+    const resp = await fetch(url, options);
+    return resp.json();
   }
 
   async trigger() {
@@ -48,7 +49,7 @@ export default class DataLayer {
   }
 
   async update(id, name, url) {  // update bookmark by id
-    const bookmark = this.apiFetch("update", {
+    const bookmark = await this.apiFetch("update", {
       method: 'POST',
       headers: {
         "Content-Type": "application/json",

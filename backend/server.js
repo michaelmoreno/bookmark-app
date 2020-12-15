@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const { Schema } = mongoose;
-
+const cors = require('cors');
 
 function setupDB(host, user, pw, dbname) {
   const url = `mongodb+srv://${user}:${pw}@${host}/${dbname}?retryWrites=true&w=majority`;
@@ -26,6 +26,7 @@ function setupApp(port) {
 
   app.use(bodyParser.urlencoded({ extended: false }));
   app.use(bodyParser.json());
+  app.use(cors())
 
   app.listen(port, () => console.log(`listening on ${port}`))
   return app;
