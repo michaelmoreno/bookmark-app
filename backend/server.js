@@ -47,12 +47,12 @@ app.post('/add', async (req, res) => {
   res.json(bookmark)
 })
 
-app.delete('/rem', async (req, res) => {
+app.post('/delete', async (req, res) => {
   const id = req.body.id;
   await models.Bookmark.findByIdAndDelete(id).exec();
 })
 
-app.put('/edit', async (req, res) => {
+app.post('/update', async (req, res) => {
   const id = req.body.id;
   const name = req.body.name;
   const url = req.body.url;
