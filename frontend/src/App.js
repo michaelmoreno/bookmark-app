@@ -27,12 +27,7 @@ function App() {
 
   return (
     <div className="App">
-      <form action="/add" method="post">
-        <h2>Add new bookmark</h2>
-        <input type="text" id="name" placeholder="Name"/>
-        <input type="text" id="url" placeholder="http://website.domain"/>
-        <button onClick={addBKMK} id="add">Add</button>
-      </form>
+      <BookmarkAdder api={dataLayer}/>
       <div id="bookmarks">
         {bookmarkElements}
       </div>
