@@ -7,6 +7,9 @@ export default class DataLayer {
 
     console.log(this.host);
     console.log(this.port);
+
+    console.log(this.host);
+    console.log(this.port);
   }
 
   makeUrl(uri) {

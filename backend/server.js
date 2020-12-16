@@ -56,6 +56,7 @@ app.post('/add', async (req, res) => {
 app.post('/delete', async (req, res) => {
   const id = req.body.id;
   await models.Bookmark.findByIdAndDelete(id).exec();
+  res.json(id);
 })
 
 app.post('/update', async (req, res) => {
