@@ -21,7 +21,7 @@ export default class DataLayer {
     this.hookUpdate(bookmarks);
   }
 
-  async all(name, url) { // fetch all bookmarks
+  async all() { // fetch all bookmarks
     var bookmarks = await this.apiFetch("all");
     return bookmarks;
   };
