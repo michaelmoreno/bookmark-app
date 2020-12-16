@@ -12,8 +12,7 @@ function App() {
 
   const bookmarkElements = [];
 
-  if (bookmarki Juss != null) {
-
+  if (bookmarks != null) {
     for (let bookmark of bookmarks) {
       const ele = <Bookmark data={bookmark} api={dataLayer} key={bookmark._id} />;
       bookmarkElements.push(ele);
