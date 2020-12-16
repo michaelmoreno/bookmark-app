@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const { Schema } = mongoose;
 const cors = require('cors');
+const { response } = require('express');
 
 function setupDB(host, user, pw, dbname) {
   const url = `mongodb+srv://${user}:${pw}@${host}/${dbname}?retryWrites=true&w=majority`;
@@ -34,6 +35,10 @@ function setupApp(port) {
 
 const models = setupDB("cluster0.lvnil.mongodb.net", "michael", "dbpwd", "bookmarks");
 const app = setupApp(3000);
+
+app.get('/', (req, res) => {
+  res.send('working')
+})
 
 app.get('/all', async (req, res) => {
   const bookmarks = await models.Bookmark.find({}).exec();

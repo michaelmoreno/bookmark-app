@@ -4,6 +4,9 @@ export default class DataLayer {
     this.hookUpdate = null;
     this.host = host;
     this.port = port;
+
+    console.log(this.host);
+    console.log(this.port);
   }
 
   makeUrl(uri) {

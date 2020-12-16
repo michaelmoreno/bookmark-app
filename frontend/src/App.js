@@ -3,7 +3,7 @@ import Bookmark from './Bookmark';
 import DataLayer from './DataLayer';
 
 
-const dataLayer = new DataLayer("http://localhost:3000/");
+const dataLayer = new DataLayer("localhost", "3000");
 
 function App() {
   const [bookmarks, setBookmarks] = useState(null);

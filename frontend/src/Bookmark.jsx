@@ -21,7 +21,7 @@ export default function Bookmark({ data, api }) {
   };
 
   // user pressed edit button
-  const onEdit = event =>  {
+  const onUpdate = event =>  {
     event.preventDefault();
     // send new data to backend api
     api.update(data.id, name, url);
@@ -38,7 +38,7 @@ export default function Bookmark({ data, api }) {
     <form className="bookmark">
       <input type="text" onChange={onNameChange} value={name}/>
       <input type="text" onChange={onUrlChange} value={url}/>
-      <button onClick={onEdit}>Edit</button>
+      <button onClick={onUpdate}>Update</button>
       <button onClick={onDelete}>Delete</button>
     </form>
   )
