@@ -29,7 +29,6 @@ function App() {
     <div className="App">
       <h1>Add a new bookmark</h1> 
       <BookmarkAdder api={dataLayer}/>
-      <hr />
       <div id="bookmarks">
         <h1>Your Bookmarks</h1>
         {bookmarkElements}
@@ -39,3 +38,4 @@ function App() {
 }
 
 export default App;
+

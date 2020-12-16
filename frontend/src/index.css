@@ -1,41 +1,67 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  height: 100vh;
+body * {
   display: flex;
+  flex-direction: row;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+margin: 0;
+font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
 }
 
 #root {
-  margin: auto;
+  padding: 1em;
+  justify-content: center;
+}
+
+h1 {
+  margin: 0px;
+}
+
+code {
+font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  monospace;
+}
+
+#root {
+margin: auto;
 }
 
 .App {
-  /* display: flex; */
-  width: 500px;
-  box-shadow: 0px 0px 10px 1px #ccc;
+  flex-direction: column;
 }
 
-.App form {
-  border-radius: 5px;
-  height: 300px;
-  margin: auto;
+#bookmarks {
+  flex-direction: column;
 }
-.App input {
-  width: 150px;
+
+#bookmarks .bookmark:nth-child(odd) {
+  background: lightgray;
 }
+
 .bookmark {
-  padding-top: 20px;
-  max-height: 30px;
+  padding: 1em;
+  flex-direction: column;
+  border-top: 1px solid gray;
 }
-.bookmark input {
-  width: 150px;
+
+.field div {
+  width: 4em;
+  flex-direction: row-reverse;
+  margin-right: 1em;
+  text-align: right;
 }
+
+.field input {
+  flex-grow: 1;
+}
+
+.controls {
+  flex-direction: row-reverse;
+}
+
+
+

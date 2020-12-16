@@ -18,15 +18,21 @@ export default function BookmarkAdder({ api }) {
 
   const onAdd = () => {
     api.add(name, url);
-    
   }
 
   return (
-    <div>
-      <input type="text" className="name" onChange={onNameChange} value={name}/>
-      <input type="text" className="url" onChange={onUrlChange} value={url}/>
-      <button onClick={onAdd}id="Add">add</button>
-    </div>    
+      <div className="bookmark">
+          <div className="field">
+              <div>Name:</div>
+              <input type="text" className="name" onChange={onNameChange} value={name}/>
+          </div>
+          <div className="field">
+              <div>URL:</div>
+              <input type="text" className="url" onChange={onUrlChange} value={url}/>
+          </div>
+          <div className="controls">
+              <button onClick={onAdd}id="Add">add</button>
+          </div>
+    </div>
   );
-  
 }

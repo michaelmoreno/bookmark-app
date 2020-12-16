@@ -35,11 +35,19 @@ export default function Bookmark({ data, api }) {
   }
 
   return (
-    <form className="bookmark">
-      <input type="text" onChange={onNameChange} value={name}/>
-      <input type="text" onChange={onUrlChange} value={url}/>
-      <button onClick={onUpdate}>Update</button>
-      <button onClick={onDelete}>Delete</button>
-    </form>
+      <div className="bookmark">
+          <div className="field">
+              <div>Name:</div>
+              <input type="text" onChange={onNameChange} value={name}/>
+          </div>
+          <div className="field">
+              <div>URL:</div>
+              <input type="text" onChange={onUrlChange} value={url}/>
+          </div>
+        <div className="controls">
+            <button onClick={onUpdate}>Update</button>
+            <button onClick={onDelete}>Delete</button>
+        </div>
+    </div>
   )
 }
