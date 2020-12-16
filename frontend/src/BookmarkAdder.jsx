@@ -22,9 +22,9 @@ export default function BookmarkAdder({ api }) {
 
   return (
     <div>
-      <input type="text" className="name" onChange={onNameChange()} value={name}/>
-      <input type="text" className="url" onChange={onUrlChange()} value={url}/>
-      <button onClick={onAdd(name, url)}id="Add">add</button>
+      <input type="text" className="name" onChange={onNameChange} value={name}/>
+      <input type="text" className="url" onChange={onUrlChange} value={url}/>
+      <button onClick={onAdd}id="Add">add</button>
     </div>    
   );
   
