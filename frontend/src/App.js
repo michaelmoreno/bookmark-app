@@ -13,8 +13,9 @@ function App() {
   const bookmarkElements = [];
 
   if (bookmarks != null) {
+
     for (let bookmark of bookmarks) {
-      const ele = <Bookmark data={bookmark} api={dataLayer} />;
+      const ele = <Bookmark data={bookmark} api={dataLayer} key={bookmark._id} />;
       bookmarkElements.push(ele);
     }
   } else {
@@ -24,7 +25,7 @@ function App() {
   const addBKMK = () => {
     DataLayer.add();
   }
-  
+
   return (
     <div className="App">
       <form action="/add" method="post">

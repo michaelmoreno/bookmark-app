@@ -24,14 +24,14 @@ export default function Bookmark({ data, api }) {
   const onUpdate = event =>  {
     event.preventDefault();
     // send new data to backend api
-    api.update(data.id, name, url);
+    api.update(data._id, name, url);
   };
 
   // user pressed delete button
   const onDelete = (event) => {
     event.preventDefault();
-    // send deleted id to backend api
-    api.delete(data.id);
+    // send deleted _id to backend api
+    api.delete(data._id);
   }
 
   return (
