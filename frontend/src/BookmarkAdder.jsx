@@ -18,6 +18,7 @@ export default function BookmarkAdder({ api }) {
 
   const onAdd = () => {
     api.add(name, url);
+    
   }
 
   return (

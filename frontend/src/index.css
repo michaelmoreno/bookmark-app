@@ -21,7 +21,7 @@ code {
 
 .App {
   /* display: flex; */
-  width: 400px;
+  width: 500px;
   box-shadow: 0px 0px 10px 1px #ccc;
 }
 
@@ -29,4 +29,14 @@ code {
   border-radius: 5px;
   height: 300px;
   margin: auto;
+}
+.App input {
+  width: 150px;
+}
+.bookmark {
+  padding-top: 20px;
+  max-height: 30px;
+}
+.bookmark input {
+  width: 150px;
 }

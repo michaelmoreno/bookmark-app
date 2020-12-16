@@ -27,8 +27,11 @@ function App() {
 
   return (
     <div className="App">
+      <h1>Add a new bookmark</h1> 
       <BookmarkAdder api={dataLayer}/>
+      <hr />
       <div id="bookmarks">
+        <h1>Your Bookmark</h1>
         {bookmarkElements}
       </div>
     </div>
