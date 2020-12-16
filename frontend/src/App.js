@@ -12,7 +12,7 @@ function App() {
 
   const bookmarkElements = [];
 
-  if (bookmarks != null) {
+  if (bookmarki Juss != null) {
 
     for (let bookmark of bookmarks) {
       const ele = <Bookmark data={bookmark} api={dataLayer} key={bookmark._id} />;
