@@ -31,7 +31,7 @@ function App() {
       <BookmarkAdder api={dataLayer}/>
       <hr />
       <div id="bookmarks">
-        <h1>Your Bookmark</h1>
+        <h1>Your Bookmarks</h1>
         {bookmarkElements}
       </div>
     </div>
